@@ -1,37 +1,22 @@
-class Rectangle {
-  constructor(width, height) {
-    if (width <= 0 || height <= 0) {
-      throw new Error("Width and height must be positive integers.");
-    }
-    this._width = width;
-    this._height = height;
-  }
+// Create the student object
+const student = {
+  name: "John",
+};
 
-  get width() {
-    return this._width;
-  }
-
-  get height() {
-    return this._height;
-  }
-
-  getArea() {
-    return this._width * this._height;
-  }
+// Function to get all keys from the object
+function getKeys(obj) {
+  return Object.keys(obj);
 }
 
-class Square extends Rectangle {
-  constructor(side) {
-    if (side <= 0) {
-      throw new Error("Side must be a positive integer.");
-    }
-    super(side, side);
-  }
+// Testing the function
+console.log(getKeys(student)); // Output: ["name"]
 
-  getPerimeter() {
-    return 4 * this._width;
-  }
-}
+// Additional tests
+const student2 = {
+  name: "Alice",
+  age: 22,
+  city: "New York"
+};
 
-window.Rectangle = Rectangle;
-window.Square = Square;
+console.log(getKeys(student2)); // Output: ["name", "age", "city"]
+
