@@ -1,22 +1,48 @@
-// Create the student object
-const student = {
-  name: "John",
-};
+class Rectangle {
+  constructor(width, height) {
+    if (width <= 0 || height <= 0) {
+      throw new Error("Width and height must be positive integers.");
+    }
+    this._width = width;
+    this._height = height;
+  }
 
-// Function to get all keys from the object
-function getKeys(obj) {
-  return Object.keys(obj);
+  get width() {
+    return this._width;
+  }
+
+  get height() {
+    return this._height;
+  }
+
+  getArea() {
+    return this._width * this._height;
+  }
 }
 
-// Testing the function
-console.log(getKeys(student)); // Output: ["name"]
+class Square extends Rectangle {
+  constructor(side) {
+    if (side <= 0) {
+      throw new Error("Side length must be a positive integer.");
+    }
+    super(side, side); // Call the parent constructor with equal width and height
+  }
 
-// Additional tests
-const student2 = {
-  name: "Alice",
-  age: 22,
-  city: "New York"
-};
+  getPerimeter() {
+    return 4 * this.width;
+  }
+}
 
-console.log(getKeys(student2)); // Output: ["name", "age", "city"]
+// Example Usage
+const rectangle = new Rectangle(5, 10);
+console.log(rectangle.width); // Output: 5
+console.log(rectangle.height); // Output: 10
+console.log(rectangle.getArea()); // Output: 50
+
+const square = new Square(7);
+console.log(square.width); // Output: 7
+console.log(square.height); // Output: 7
+console.log(square.getArea()); // Output: 49
+console.log(square.getPerimeter()); // Output: 28
+
 
