@@ -1,4 +1,3 @@
-//complete this code
 class Rectangle {
 	constructor(width,height){
 		if (width <= 0 || height <= 0) {
@@ -34,6 +33,5 @@ class Square extends Rectangle {
 	}
 }
 
-
-
-
+window.Rectangle = Rectangle;
+window.Square = Square;
